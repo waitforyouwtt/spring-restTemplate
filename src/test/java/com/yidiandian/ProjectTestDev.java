@@ -19,7 +19,7 @@ import java.util.Map;
  */
 @Component
 @Slf4j
-public class projectTest extends SpringResttemplateApplicationTests{
+public class ProjectTestDev extends SpringResttemplateApplicationTests{
 
     String sitBaseUrl = "http://o2o-support-sit.o2o-support-idaas-gateway.sitgw.yonghui.cn/o2o-support-idaas-application/v1/open";
     String devBaseUrl = "http://o2o-support-dev.o2o-support-idaas-gateway.devgw.yonghui.cn/o2o-support-idaas-application/v1/open";
@@ -91,8 +91,6 @@ public class projectTest extends SpringResttemplateApplicationTests{
         ResponseEntity<Map> resp = restTemplate.exchange(url, HttpMethod.POST, httpEntity, Map.class);
 
         log.info("获取到的结果:{}",JSONUtil.toJsonStr(resp));
-
-
     }
 
 }
