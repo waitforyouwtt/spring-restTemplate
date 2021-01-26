@@ -9,9 +9,7 @@ import org.springframework.http.*;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author 凤凰小哥哥
@@ -92,5 +90,68 @@ public class ProjectTestDev extends SpringResttemplateApplicationTests{
 
         log.info("获取到的结果:{}",JSONUtil.toJsonStr(resp));
     }
+
+    @Test
+    public void test(){
+        Map<String, String> map = new HashMap<>();
+        map.put("organizationCode","sjzt000007");
+        map.put("productCode","sjzt");
+        map.put("optCode","1001");
+        map.put("optBy","澜哥哥");
+
+        String url = sitBaseUrl +"/role/findOrganizationRolePage";
+
+        HttpHeaders header = new HttpHeaders();
+        header.setContentType(MediaType.APPLICATION_JSON);
+        header.set("Date", SignatureUtils.toGMTString(new Date()));
+        header.set("Digest", SignatureUtils.generateDigestString(map));
+        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.POST, map, "HTTP/1.1", url, "sjzt", "VCg4NDiayKyWnKoU"));
+        HttpEntity<Map<String, String>> httpEntity = new HttpEntity<>(map, header);
+
+        ResponseEntity<Map> resp = restTemplate.exchange(url, HttpMethod.POST, httpEntity, Map.class);
+
+        log.info("获取到的结果:{}",JSONUtil.toJsonStr(resp));
+    }
+
+    @Test
+    public void test2(){
+        Map<String, String> map = new HashMap<>();
+        map.put("productCode","sjzt");
+        map.put("organizationCode","sjzt000042");
+        String url = sitBaseUrl + "/role/findOrganizationRolePage";
+
+        HttpHeaders header = new HttpHeaders();
+        header.setContentType(MediaType.APPLICATION_JSON);
+        header.set("Date", SignatureUtils.toGMTString(new Date()));
+        header.set("Digest", SignatureUtils.generateDigestString(map));
+        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.POST, map, "HTTP/1.1", url, "sjzt", "VCg4NDiayKyWnKoU"));
+        HttpEntity<Map<String, String>> httpEntity = new HttpEntity<>(map, header);
+
+        ResponseEntity<Map> resp = restTemplate.exchange(url, HttpMethod.POST, httpEntity, Map.class);
+
+        log.info("获取到的结果:{}",JSONUtil.toJsonStr(resp.getBody()));
+    }
+
+    @Test
+    public void test3(){
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("productCode","cwzt");
+
+        String url = sitBaseUrl + "/resource/queryResourceTree";
+
+        HttpHeaders header = new HttpHeaders();
+        header.setContentType(MediaType.APPLICATION_JSON);
+        header.set("Date", SignatureUtils.toGMTString(new Date()));
+        header.set("Digest", SignatureUtils.generateDigestString(map));
+        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.POST, map, "HTTP/1.1", url, "cwzt", "3ASyxs0lbXeNebCR"));
+        HttpEntity<Map<String, Object>> httpEntity = new HttpEntity<>(map, header);
+
+        ResponseEntity<Map> resp = restTemplate.exchange(url, HttpMethod.POST, httpEntity, Map.class);
+
+        log.info("获取到的结果:{}",JSONUtil.toJsonStr(resp.getBody()));
+
+    }
+
 
 }

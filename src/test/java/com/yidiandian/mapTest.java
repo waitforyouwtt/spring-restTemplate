@@ -4,6 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.util.NumberUtils;
+import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.HashMap;
@@ -25,5 +27,10 @@ public class mapTest extends SpringResttemplateApplicationTests{
 
         String stringByMap = MapUtils.getStringByMap(map);
         log.info("得到的结果:{}",stringByMap);
+    }
+
+    @Test
+    public void test(){
+
     }
 }

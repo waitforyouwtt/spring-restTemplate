@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -21,19 +22,29 @@ import java.util.Map;
  */
 @Component
 @Slf4j
-public class ProjectTestProd extends SpringResttemplateApplicationTests{
+public class ProjectTestSJTD extends SpringResttemplateApplicationTests {
+
+    String devBaseUrl = "http://o2o-support-dev.o2o-support-idaas-gateway.devgw.yonghui.cn/o2o-support-idaas-application/v1/open";
+
 
     @Autowired
     RestTemplate restTemplate;
 
     @Test
-    public void testGetForHeader0(){
+    public void testGetForHeader0() {
+        Map<String,String> map = new HashMap<>();
+        map.put("productCode","sjztkf");
+        map.put("userCode","80838245");
+        //不支持中文
+        /*map.put("realName","王建伟");*/
+        map.put("path","01");
+        map.put("resourceType","1");
 
-        String url = "http://o2o-support-prod.o2o-support-idaas-gateway.gw.yonghui.cn/o2o-support-idaas-application/v1/open/resource/findRoleResource/d801b01debab45208b6d06dd6d6bcc2d";
+        String url = devBaseUrl+"/resource/queryResourceAuth?"+MapUtils.getStringByMap(map);
 
         HttpHeaders header = new HttpHeaders();
         header.set("Date", SignatureUtils.toGMTString(new Date()));
-        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.GET, null, "HTTP/1.1", url, "bgzt", "YMeugiHOicQ7ZsIW"));
+        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.GET, null, "HTTP/1.1", url, "sjztkf", "qmzRUAjEblQis4Vk"));
 
         HttpEntity<Map<String, String>> httpEntity = new HttpEntity<>(header);
 
@@ -42,7 +53,7 @@ public class ProjectTestProd extends SpringResttemplateApplicationTests{
     }
 
     @Test
-    public void testGetForHeader11(){
+    public void testGetForHeader11() {
 
         String url = "http://o2o-support-prod.o2o-support-idaas-gateway.gw.yonghui.cn/o2o-support-idaas-application/v1/open/product/getAuthUser?productCode=bgzt&pageSize=2147483647&pageNum=1";
 
