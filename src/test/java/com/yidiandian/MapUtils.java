@@ -3,6 +3,7 @@ package com.yidiandian;
 
 import org.junit.platform.commons.util.StringUtils;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
@@ -44,5 +45,11 @@ public class MapUtils {
 
     public static String randomUUID() {
         return java.util.UUID.randomUUID().toString();
+    }
+
+    public static String fyFormatDate() {
+        SimpleDateFormat f = new SimpleDateFormat("yyyyMMDDHHmmddSSS");
+        String sDate = f.format(new Date());
+        return sDate;
     }
 }

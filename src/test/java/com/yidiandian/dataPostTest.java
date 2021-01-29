@@ -66,7 +66,7 @@ public class dataPostTest extends SpringResttemplateApplicationTests {
 
     @Test
     public void test3(){
-        String s = MapUtils.randomUUID();
+        String s = MapUtils.fyFormatDate();
         log.info("生成的时间：{}",s);
     }
 
