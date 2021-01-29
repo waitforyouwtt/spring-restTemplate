@@ -24,15 +24,14 @@ public class dataPostTest extends SpringResttemplateApplicationTests {
     @Test
     public void post1(){
         Map<String, String> map = new HashMap<>();
-        map.put("productCode","sjzt");
-        map.put("organizationCode","sjzt000042");
+        map.put("productCode","sjcas");
         String url = sitBaseUrl + "/role/findOrganizationRolePage";
 
         HttpHeaders header = new HttpHeaders();
         header.setContentType(MediaType.APPLICATION_JSON);
         header.set("Date", SignatureUtils.toGMTString(new Date()));
         header.set("Digest", SignatureUtils.generateDigestString(map));
-        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.POST, map, "HTTP/1.1", url, "sjzt", "VCg4NDiayKyWnKoU"));
+        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.POST, map, "HTTP/1.1", url, "sjcas", "BgPYDBeely1pcsag"));
         HttpEntity<Map<String, String>> httpEntity = new HttpEntity<>(map, header);
 
         ResponseEntity<Map> resp = restTemplate.exchange(url, HttpMethod.POST, httpEntity, Map.class);
@@ -44,9 +43,9 @@ public class dataPostTest extends SpringResttemplateApplicationTests {
     public void post2(){
         List<RoleAuthorizationUserVO> list = new ArrayList<>();
         RoleAuthorizationUserVO vo = new RoleAuthorizationUserVO();
-        vo.setOrganizationCode("sjzt000041");
+        vo.setOrganizationCode("sjcas000001");
         vo.setUserCode("80929954");
-        vo.setRoleCode("sjzt000000hb");
+        vo.setRoleCode("sjcas0000000o");
         vo.setOptCode("1001");
         vo.setOptBy("1001");
         list.add(vo);
@@ -57,8 +56,59 @@ public class dataPostTest extends SpringResttemplateApplicationTests {
         header.setContentType(MediaType.APPLICATION_JSON);
         header.set("Date", SignatureUtils.toGMTString(new Date()));
         header.set("Digest", SignatureUtils.generateDigestString(list));
-        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.POST, list, "HTTP/1.1", url, "sjzt", "VCg4NDiayKyWnKoU"));
+        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.POST, list, "HTTP/1.1", url, "sjcas", "BgPYDBeely1pcsag"));
         HttpEntity<List<RoleAuthorizationUserVO>> httpEntity = new HttpEntity<>(list, header);
+
+        ResponseEntity<Map> resp = restTemplate.exchange(url, HttpMethod.POST, httpEntity, Map.class);
+
+        log.info("获取到的结果:{}", JSONUtil.toJsonStr(resp.getBody()));
+    }
+
+    @Test
+    public void test3(){
+        String s = MapUtils.randomUUID();
+        log.info("生成的时间：{}",s);
+    }
+
+    @Test
+    public void test4(){
+
+        MultiResourceAuthRoleVO vo = new MultiResourceAuthRoleVO();
+        vo.setProductCode("sjcas");
+        vo.setResourceCodes(Arrays.asList("datawork"));
+        vo.setRoleCode("sjcas00000000");
+        vo.setTenantCode("sjcas");
+        vo.setOptBy("0000");
+        vo.setOptCode("0000");
+
+        String url = sitBaseUrl + "/resource/resourceAuthRole";
+
+        HttpHeaders header = new HttpHeaders();
+        header.setContentType(MediaType.APPLICATION_JSON);
+        header.set("Date", SignatureUtils.toGMTString(new Date()));
+        header.set("Digest", SignatureUtils.generateDigestString(vo));
+        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.POST, vo, "HTTP/1.1", url, "sjcas", "BgPYDBeely1pcsag"));
+        HttpEntity<MultiResourceAuthRoleVO> httpEntity = new HttpEntity<>(vo, header);
+
+        ResponseEntity<Map> resp = restTemplate.exchange(url, HttpMethod.POST, httpEntity, Map.class);
+
+        log.info("获取到的结果:{}", JSONUtil.toJsonStr(resp.getBody()));
+    }
+
+    @Test
+    public void test5(){
+        Map<String, String> map = new HashMap<>();
+        map.put("productCode", "sjcas");
+        map.put("organizationCode", "sjcas000001");
+        map.put("roleCode", "sjcas0000000o");
+        String url = sitBaseUrl + "/role/getRoleAuthUser";
+
+        HttpHeaders header = new HttpHeaders();
+        header.setContentType(MediaType.APPLICATION_JSON);
+        header.set("Date", SignatureUtils.toGMTString(new Date()));
+        header.set("Digest", SignatureUtils.generateDigestString(map));
+        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.POST, map, "HTTP/1.1", url, "sjcas", "BgPYDBeely1pcsag"));
+        HttpEntity<Map<String, String>> httpEntity = new HttpEntity<>(map, header);
 
         ResponseEntity<Map> resp = restTemplate.exchange(url, HttpMethod.POST, httpEntity, Map.class);
 
