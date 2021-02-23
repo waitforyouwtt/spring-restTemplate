@@ -22,7 +22,6 @@ public class UserInfo {
         this.resourceName = resourceName;
         this.path = path;
     }
-
     public UserInfo() {
 
     }

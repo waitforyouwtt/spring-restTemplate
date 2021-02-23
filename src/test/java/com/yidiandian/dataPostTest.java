@@ -44,11 +44,19 @@ public class dataPostTest extends SpringResttemplateApplicationTests {
         List<RoleAuthorizationUserVO> list = new ArrayList<>();
         RoleAuthorizationUserVO vo = new RoleAuthorizationUserVO();
         vo.setOrganizationCode("sjcas000001");
-        vo.setUserCode("80929954");
-        vo.setRoleCode("sjcas0000000o");
+        vo.setUserCode("80900867");
+        vo.setRoleCode("sjcas0000000t");
         vo.setOptCode("1001");
-        vo.setOptBy("1001");
+        vo.setOptBy("云澜");
+
+        RoleAuthorizationUserVO vo1 = new RoleAuthorizationUserVO();
+        vo1.setOrganizationCode("sjcas000001");
+        vo1.setUserCode("81041592");
+        vo1.setRoleCode("sjcas0000000t");
+        vo1.setOptCode("1001");
+        vo1.setOptBy("云澜");
         list.add(vo);
+        list.add(vo1);
 
         String url = "http://o2o-support-sit.o2o-support-idaas-gateway.sitgw.yonghui.cn/o2o-support-idaas-application/v1/open/role/RoleAuthorizationUser";
 
