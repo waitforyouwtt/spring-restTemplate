@@ -2,6 +2,7 @@ package com.yidiandian;
 
 import cn.hutool.json.JSONUtil;
 import com.cas.starter.configuration.SignatureUtils;
+import com.yidiandian.utils.MapUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +41,7 @@ public class ProjectTestSJTD extends SpringResttemplateApplicationTests {
         map.put("path","01");
         map.put("resourceType","1");
 
-        String url = devBaseUrl+"/resource/queryResourceAuth?"+MapUtils.getStringByMap(map);
+        String url = devBaseUrl+"/resource/queryResourceAuth?"+ MapUtils.getStringByMap(map);
 
         HttpHeaders header = new HttpHeaders();
         header.set("Date", SignatureUtils.toGMTString(new Date()));

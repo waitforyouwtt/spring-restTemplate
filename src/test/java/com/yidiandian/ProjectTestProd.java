@@ -43,7 +43,6 @@ public class ProjectTestProd extends SpringResttemplateApplicationTests{
 
     @Test
     public void testGetForHeader11(){
-
         String url = "http://o2o-support-prod.o2o-support-idaas-gateway.gw.yonghui.cn/o2o-support-idaas-application/v1/open/product/getAuthUser?productCode=bgzt&pageSize=2147483647&pageNum=1";
 
         HttpHeaders header = new HttpHeaders();

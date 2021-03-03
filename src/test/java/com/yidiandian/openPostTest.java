@@ -1,8 +1,8 @@
 package com.yidiandian;
 
 import cn.hutool.json.JSONUtil;
-import com.alibaba.fastjson.JSON;
 import com.cas.starter.configuration.SignatureUtils;
+import com.yidiandian.vo.ProductAuthMultiUserVo;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

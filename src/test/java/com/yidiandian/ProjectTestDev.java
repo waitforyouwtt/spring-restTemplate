@@ -2,6 +2,7 @@ package com.yidiandian;
 
 import cn.hutool.json.JSONUtil;
 import com.cas.starter.configuration.SignatureUtils;
+import com.yidiandian.utils.MapUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,7 +50,7 @@ public class ProjectTestDev extends SpringResttemplateApplicationTests{
         /*map.put("realName","王建伟");*/
         map.put("pageNum","1");
         map.put("pageSize","10");
-        String url = devBaseUrl+"/product/getAuthUser?"+MapUtils.getStringByMap(map);
+        String url = devBaseUrl+"/product/getAuthUser?"+ MapUtils.getStringByMap(map);
 
         HttpHeaders header = new HttpHeaders();
         header.set("Date", SignatureUtils.toGMTString(new Date()));
