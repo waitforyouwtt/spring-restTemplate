@@ -18,8 +18,8 @@ import java.util.*;
 @Slf4j
 public class dataPostTest extends SpringResttemplateApplicationTests {
 
-    String sitBaseUrl = "http://o2o-support-sit.o2o-support-idaas-gateway.sitgw.yonghui.cn/o2o-support-idaas-application/v1/open";
-    String devBaseUrl = "http://o2o-support-dev.o2o-support-idaas-gateway.devgw.yonghui.cn/o2o-support-idaas-application/v1/open";
+    String sitBaseUrl = "http://o2o-port-sit.o2o-support-idaas-gateway.sitgw.yonghui.cn/o2o-support-idaas-application/v1/open";
+    String devBaseUrl = "http://o2o-port-dev.o2o-support-idaas-gateway.devgw.yonghui.cn/o2o-support-idaas-application/v1/open";
 
     @Autowired
     RestTemplate restTemplate;
@@ -34,7 +34,7 @@ public class dataPostTest extends SpringResttemplateApplicationTests {
         header.setContentType(MediaType.APPLICATION_JSON);
         header.set("Date", SignatureUtils.toGMTString(new Date()));
         header.set("Digest", SignatureUtils.generateDigestString(map));
-        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.POST, map, "HTTP/1.1", url, "sjcas", "BgPYDBeely1pcsag"));
+        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.POST, map, "HTTP/1.1", url, "", ""));
         HttpEntity<Map<String, String>> httpEntity = new HttpEntity<>(map, header);
 
         ResponseEntity<Map> resp = restTemplate.exchange(url, HttpMethod.POST, httpEntity, Map.class);
@@ -67,7 +67,7 @@ public class dataPostTest extends SpringResttemplateApplicationTests {
         header.setContentType(MediaType.APPLICATION_JSON);
         header.set("Date", SignatureUtils.toGMTString(new Date()));
         header.set("Digest", SignatureUtils.generateDigestString(list));
-        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.POST, list, "HTTP/1.1", url, "sjcas", "BgPYDBeely1pcsag"));
+        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.POST, list, "HTTP/1.1", url, "", ""));
         HttpEntity<List<RoleAuthorizationUserVO>> httpEntity = new HttpEntity<>(list, header);
 
         ResponseEntity<Map> resp = restTemplate.exchange(url, HttpMethod.POST, httpEntity, Map.class);
@@ -98,7 +98,7 @@ public class dataPostTest extends SpringResttemplateApplicationTests {
         header.setContentType(MediaType.APPLICATION_JSON);
         header.set("Date", SignatureUtils.toGMTString(new Date()));
         header.set("Digest", SignatureUtils.generateDigestString(vo));
-        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.POST, vo, "HTTP/1.1", url, "sjcas", "BgPYDBeely1pcsag"));
+        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.POST, vo, "HTTP/1.1", url, "", ""));
         HttpEntity<MultiResourceAuthRoleVO> httpEntity = new HttpEntity<>(vo, header);
 
         ResponseEntity<Map> resp = restTemplate.exchange(url, HttpMethod.POST, httpEntity, Map.class);
@@ -118,7 +118,7 @@ public class dataPostTest extends SpringResttemplateApplicationTests {
         header.setContentType(MediaType.APPLICATION_JSON);
         header.set("Date", SignatureUtils.toGMTString(new Date()));
         header.set("Digest", SignatureUtils.generateDigestString(map));
-        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.POST, map, "HTTP/1.1", url, "sjcas", "BgPYDBeely1pcsag"));
+        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.POST, map, "HTTP/1.1", url, "", ""));
         HttpEntity<Map<String, String>> httpEntity = new HttpEntity<>(map, header);
 
         ResponseEntity<Map> resp = restTemplate.exchange(url, HttpMethod.POST, httpEntity, Map.class);

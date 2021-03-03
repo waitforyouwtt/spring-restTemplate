@@ -21,8 +21,8 @@ import java.util.Map;
 @Slf4j
 public class openGetTest extends SpringResttemplateApplicationTests {
 
-    String sitBaseUrl = "http://o2o-support-sit.o2o-support-idaas-gateway.sitgw.yonghui.cn/o2o-support-idaas-application/v1/open";
-    String devBaseUrl = "http://o2o-support-dev.o2o-support-idaas-gateway.devgw.yonghui.cn/o2o-support-idaas-application/v1/open";
+    String sitBaseUrl = "http://o2o-port-sit.o2o-support-idaas-gateway.sitgw.yonghui.cn/o2o-support-idaas-application/v1/open";
+    String devBaseUrl = "http://o2o-port-dev.o2o-support-idaas-gateway.devgw.yonghui.cn/o2o-support-idaas-application/v1/open";
 
     @Autowired
     RestTemplate restTemplate;
@@ -40,7 +40,7 @@ public class openGetTest extends SpringResttemplateApplicationTests {
 
         HttpHeaders header = new HttpHeaders();
         header.set("Date", SignatureUtils.toGMTString(new Date()));
-        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.GET, null, "HTTP/1.1", url, "kfpt-cs", "paALbiX8Bec3dnVC"));
+        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.GET, null, "HTTP/1.1", url, "", ""));
 
         HttpEntity<String> httpEntity = new HttpEntity<>(header);
 
@@ -62,7 +62,7 @@ public class openGetTest extends SpringResttemplateApplicationTests {
 
         HttpHeaders header = new HttpHeaders();
         header.set("Date", SignatureUtils.toGMTString(new Date()));
-        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.GET, null, "HTTP/1.1", url, "sjcas", "BgPYDBeely1pcsag"));
+        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.GET, null, "HTTP/1.1", url, "", ""));
 
         HttpEntity<String> httpEntity = new HttpEntity<>(header);
 
@@ -84,7 +84,7 @@ public class openGetTest extends SpringResttemplateApplicationTests {
 
         HttpHeaders header = new HttpHeaders();
         header.set("Date", SignatureUtils.toGMTString(new Date()));
-        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.GET, null, "HTTP/1.1", url, "sjcas", "BgPYDBeely1pcsag"));
+        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.GET, null, "HTTP/1.1", url, "", ""));
 
         HttpEntity<String> httpEntity = new HttpEntity<>(header);
 
@@ -104,7 +104,7 @@ public class openGetTest extends SpringResttemplateApplicationTests {
 
         HttpHeaders header = new HttpHeaders();
         header.set("Date", SignatureUtils.toGMTString(new Date()));
-        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.GET, null, "HTTP/1.1", url, "kfpt-cs", "paALbiX8Bec3dnVC"));
+        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.GET, null, "HTTP/1.1", url, "", ""));
 
         HttpEntity<String> httpEntity = new HttpEntity<>(header);
 
@@ -123,7 +123,7 @@ public class openGetTest extends SpringResttemplateApplicationTests {
 
         HttpHeaders header = new HttpHeaders();
         header.set("Date", SignatureUtils.toGMTString(new Date()));
-        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.GET, null, "HTTP/1.1", url, "sjztkf", "qmzRUAjEblQis4Vk"));
+        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.GET, null, "HTTP/1.1", url, "", ""));
 
         HttpEntity<String> httpEntity = new HttpEntity<>(header);
 

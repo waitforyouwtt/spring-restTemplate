@@ -16,8 +16,8 @@ import java.util.*;
 @Slf4j
 public class openPostTest extends SpringResttemplateApplicationTests {
 
-    String sitBaseUrl = "http://o2o-support-sit.o2o-support-idaas-gateway.sitgw.yonghui.cn/o2o-support-idaas-application/v1/open";
-    String devBaseUrl = "http://o2o-support-dev.o2o-support-idaas-gateway.devgw.yonghui.cn/o2o-support-idaas-application/v1/open";
+    String sitBaseUrl = "http://o2o-port-sit.o2o-support-idaas-gateway.sitgw.yonghui.cn/o2o-support-idaas-application/v1/open";
+    String devBaseUrl = "http://o2o-port-dev.o2o-support-idaas-gateway.devgw.yonghui.cn/o2o-support-idaas-application/v1/open";
 
     @Autowired
     RestTemplate restTemplate;
@@ -33,7 +33,7 @@ public class openPostTest extends SpringResttemplateApplicationTests {
         header.setContentType(MediaType.APPLICATION_JSON);
         header.set("Date", SignatureUtils.toGMTString(new Date()));
         header.set("Digest", SignatureUtils.generateDigestString(map));
-        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.POST, map, "HTTP/1.1", url, "kfpt-cs", "paALbiX8Bec3dnVC"));
+        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.POST, map, "HTTP/1.1", url, "", ""));
         HttpEntity<Map<String, String>> httpEntity = new HttpEntity<>(map, header);
 
         ResponseEntity<Map> resp = restTemplate.exchange(url, HttpMethod.POST, httpEntity, Map.class);
@@ -64,7 +64,7 @@ public class openPostTest extends SpringResttemplateApplicationTests {
         header.setContentType(MediaType.APPLICATION_JSON);
         header.set("Date", SignatureUtils.toGMTString(new Date()));
         header.set("Digest", SignatureUtils.generateDigestString(list));
-        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.POST, list, "HTTP/1.1", url,  "kfpt-cs", "paALbiX8Bec3dnVC"));
+        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.POST, list, "HTTP/1.1", url,  "", ""));
         HttpEntity<List<ProductAuthMultiUserVo>> httpEntity = new HttpEntity<>(list, header);
         ResponseEntity<Map> resp = restTemplate.exchange(url, HttpMethod.POST, httpEntity, Map.class);
         log.info("获取到的结果:{}", JSONUtil.toJsonStr(resp.getBody()));

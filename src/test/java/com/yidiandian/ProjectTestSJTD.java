@@ -25,7 +25,7 @@ import java.util.Map;
 @Slf4j
 public class ProjectTestSJTD extends SpringResttemplateApplicationTests {
 
-    String devBaseUrl = "http://o2o-support-dev.o2o-support-idaas-gateway.devgw.yonghui.cn/o2o-support-idaas-application/v1/open";
+    String devBaseUrl = "http://o2o-port-dev.o2o-support-idaas-gateway.devgw.yonghui.cn/o2o-support-idaas-application/v1/open";
 
 
     @Autowired
@@ -45,7 +45,7 @@ public class ProjectTestSJTD extends SpringResttemplateApplicationTests {
 
         HttpHeaders header = new HttpHeaders();
         header.set("Date", SignatureUtils.toGMTString(new Date()));
-        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.GET, null, "HTTP/1.1", url, "sjztkf", "qmzRUAjEblQis4Vk"));
+        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.GET, null, "HTTP/1.1", url, "", ""));
 
         HttpEntity<Map<String, String>> httpEntity = new HttpEntity<>(header);
 

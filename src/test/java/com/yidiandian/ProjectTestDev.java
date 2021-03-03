@@ -20,8 +20,8 @@ import java.util.*;
 @Slf4j
 public class ProjectTestDev extends SpringResttemplateApplicationTests{
 
-    String sitBaseUrl = "http://o2o-support-sit.o2o-support-idaas-gateway.sitgw.yonghui.cn/o2o-support-idaas-application/v1/open";
-    String devBaseUrl = "http://o2o-support-dev.o2o-support-idaas-gateway.devgw.yonghui.cn/o2o-support-idaas-application/v1/open";
+    String sitBaseUrl = "http://o2o-port-sit.o2o-support-idaas-gateway.sitgw.yonghui.cn/o2o-support-idaas-application/v1/open";
+    String devBaseUrl = "http://o2o-port-dev.o2o-support-idaas-gateway.devgw.yonghui.cn/o2o-support-idaas-application/v1/open";
 
 
     @Autowired
@@ -33,7 +33,7 @@ public class ProjectTestDev extends SpringResttemplateApplicationTests{
 
         HttpHeaders header = new HttpHeaders();
         header.set("Date", SignatureUtils.toGMTString(new Date()));
-        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.GET, null, "HTTP/1.1", url, "jcsj20201127", "RsOyuJsSgJM7Xe77"));
+        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.GET, null, "HTTP/1.1", url, "", ""));
 
         HttpEntity<Map<String, String>> httpEntity = new HttpEntity<>(header);
 
@@ -54,7 +54,7 @@ public class ProjectTestDev extends SpringResttemplateApplicationTests{
 
         HttpHeaders header = new HttpHeaders();
         header.set("Date", SignatureUtils.toGMTString(new Date()));
-        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.GET, null, "HTTP/1.1", url, "jcsj20201127", "RsOyuJsSgJM7Xe77"));
+        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.GET, null, "HTTP/1.1", url, "", ""));
 
         HttpEntity<String> httpEntity = new HttpEntity<>(header);
 
@@ -84,7 +84,7 @@ public class ProjectTestDev extends SpringResttemplateApplicationTests{
         header.setContentType(MediaType.APPLICATION_JSON);
         header.set("Date", SignatureUtils.toGMTString(new Date()));
         header.set("Digest", SignatureUtils.generateDigestString(map));
-        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.POST, map, "HTTP/1.1", url, "jcsj20201127", "RsOyuJsSgJM7Xe77"));
+        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.POST, map, "HTTP/1.1", url, "", ""));
         HttpEntity<Map<String, String>> httpEntity = new HttpEntity<>(map, header);
 
         ResponseEntity<Map> resp = restTemplate.exchange(url, HttpMethod.POST, httpEntity, Map.class);
@@ -106,7 +106,7 @@ public class ProjectTestDev extends SpringResttemplateApplicationTests{
         header.setContentType(MediaType.APPLICATION_JSON);
         header.set("Date", SignatureUtils.toGMTString(new Date()));
         header.set("Digest", SignatureUtils.generateDigestString(map));
-        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.POST, map, "HTTP/1.1", url, "sjzt", "VCg4NDiayKyWnKoU"));
+        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.POST, map, "HTTP/1.1", url, "", ""));
         HttpEntity<Map<String, String>> httpEntity = new HttpEntity<>(map, header);
 
         ResponseEntity<Map> resp = restTemplate.exchange(url, HttpMethod.POST, httpEntity, Map.class);
@@ -125,7 +125,7 @@ public class ProjectTestDev extends SpringResttemplateApplicationTests{
         header.setContentType(MediaType.APPLICATION_JSON);
         header.set("Date", SignatureUtils.toGMTString(new Date()));
         header.set("Digest", SignatureUtils.generateDigestString(map));
-        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.POST, map, "HTTP/1.1", url, "sjzt", "VCg4NDiayKyWnKoU"));
+        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.POST, map, "HTTP/1.1", url, "", ""));
         HttpEntity<Map<String, String>> httpEntity = new HttpEntity<>(map, header);
 
         ResponseEntity<Map> resp = restTemplate.exchange(url, HttpMethod.POST, httpEntity, Map.class);
@@ -145,7 +145,7 @@ public class ProjectTestDev extends SpringResttemplateApplicationTests{
         header.setContentType(MediaType.APPLICATION_JSON);
         header.set("Date", SignatureUtils.toGMTString(new Date()));
         header.set("Digest", SignatureUtils.generateDigestString(map));
-        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.POST, map, "HTTP/1.1", url, "cwzt", "3ASyxs0lbXeNebCR"));
+        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.POST, map, "HTTP/1.1", url, "", ""));
         HttpEntity<Map<String, Object>> httpEntity = new HttpEntity<>(map, header);
 
         ResponseEntity<Map> resp = restTemplate.exchange(url, HttpMethod.POST, httpEntity, Map.class);

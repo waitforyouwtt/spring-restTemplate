@@ -29,11 +29,11 @@ public class ProjectTestProd extends SpringResttemplateApplicationTests{
     @Test
     public void testGetForHeader0(){
 
-        String url = "http://o2o-support-prod.o2o-support-idaas-gateway.gw.yonghui.cn/o2o-support-idaas-application/v1/open/resource/findRoleResource/d801b01debab45208b6d06dd6d6bcc2d";
+        String url = "http://o2o-port-prod.o2o-support-idaas-gateway.gw.yonghui.cn/o2o-support-idaas-application/v1/open/resource/findRoleResource/d801b01debab45208b6d06dd6d6bcc2d";
 
         HttpHeaders header = new HttpHeaders();
         header.set("Date", SignatureUtils.toGMTString(new Date()));
-        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.GET, null, "HTTP/1.1", url, "bgzt", "YMeugiHOicQ7ZsIW"));
+        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.GET, null, "HTTP/1.1", url, "", ""));
 
         HttpEntity<Map<String, String>> httpEntity = new HttpEntity<>(header);
 
