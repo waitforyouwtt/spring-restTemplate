@@ -1,4 +1,4 @@
-package com.yidiandian;
+package com.yidiandian.view;
 
 import lombok.Data;
 

@@ -25,6 +25,18 @@ public class MapUtils {
         return content.substring(1);
     }
 
+    public static String getObjectByMap(Map<String, Object> map) {
+        StringBuffer content = new StringBuffer();
+
+        for (Map.Entry<String, Object> entity : map.entrySet()) {
+            if (StringUtils.isBlank(entity.getKey())) {
+                continue;
+            }
+            content.append("&").append(entity.getKey()).append("=").append(entity.getValue());
+        }
+        return content.substring(1);
+    }
+
     private static Date date = new Date();
     private static StringBuilder buf = new StringBuilder();
     private static int seq = 0;

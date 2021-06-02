@@ -1,11 +1,10 @@
 package com.yidiandian.service.impl;
 
-import cn.hutool.json.JSON;
-import cn.hutool.json.JSONUtil;
+import com.alibaba.fastjson.JSON;
 import com.yidiandian.constant.ConstantUrl;
 import com.yidiandian.service.SingleQueryService;
 import com.yidiandian.utils.Result;
-import com.yidiandian.utils.esay.GetUtils;
+import com.yidiandian.utils.esay.RemoteCallUtils;
 import com.yidiandian.view.BaseProductView;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +17,11 @@ import java.util.List;
 public class SingleQueryServiceImpl implements SingleQueryService {
 
     @Autowired
-    GetUtils getUtils;
+    RemoteCallUtils getUtils;
 
     @Override
     public List<BaseProductView> findAllProduct() {
         Result result = getUtils.get(ConstantUrl.query_products);
-        //List<BaseProductView> userBaseModels = JSONUtil.parseArray(result.getData(), BaseProductView.class);
-        return null;
+        return  JSON.parseArray(JSON.toJSONString(result.getData()), BaseProductView.class);
     }
 }
