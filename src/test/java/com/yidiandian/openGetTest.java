@@ -29,11 +29,11 @@ public class openGetTest extends SpringResttemplateApplicationTests {
 
     @Test
     public void test1(){
-        Map<String,String> map = new HashMap<>();
+       /* Map<String,String> map = new HashMap<>();
         map.put("productCode","kfpt-cs");
         map.put("userCode","80663835");
         //不支持中文
-        /*map.put("realName","王建伟");*/
+        *//*map.put("realName","王建伟");*//*
         map.put("pageNum","1");
         map.put("pageSize","10");
         String url = sitBaseUrl+"/product/getAuthUser?"+ MapUtils.getStringByMap(map);
@@ -46,16 +46,16 @@ public class openGetTest extends SpringResttemplateApplicationTests {
 
         ResponseEntity result = restTemplate.exchange(url, HttpMethod.GET, httpEntity, String.class);
 
-        log.info("获取到的结果:{}", JSONUtil.toJsonStr(result.getBody()));
+        log.info("获取到的结果:{}", JSONUtil.toJsonStr(result.getBody()));*/
     }
 
     @Test
     public void test2(){
-        Map<String,String> map = new HashMap<>();
+        /*Map<String,String> map = new HashMap<>();
         map.put("productCode","sjcas");
-       /* map.put("userCode","80838245");*/
+       *//* map.put("userCode","80838245");*//*
         //不支持中文
-        /*map.put("realName","王建伟");*/
+        *//*map.put("realName","王建伟");*//*
         map.put("pageNum","1");
         map.put("pageSize","10");
         String url = sitBaseUrl+"/product/getAuthUser?"+MapUtils.getStringByMap(map);
@@ -68,16 +68,16 @@ public class openGetTest extends SpringResttemplateApplicationTests {
 
         ResponseEntity result = restTemplate.exchange(url, HttpMethod.GET, httpEntity, String.class);
 
-        log.info("获取到的结果:{}", JSONUtil.toJsonStr(result.getBody()));
+        log.info("获取到的结果:{}", JSONUtil.toJsonStr(result.getBody()));*/
     }
 
     @Test
     public void test3(){
-        Map<String,String> map = new HashMap<>();
+        /*Map<String,String> map = new HashMap<>();
         map.put("productCode","sjcas");
          map.put("roleCode","sjcas00000008");
         //不支持中文
-        /*map.put("realName","王建伟");*/
+        *//*map.put("realName","王建伟");*//*
         map.put("pageNum","1");
         map.put("pageSize","10");
         String url = sitBaseUrl+"/role/getRoleResourcePage?"+MapUtils.getStringByMap(map);
@@ -90,13 +90,13 @@ public class openGetTest extends SpringResttemplateApplicationTests {
 
         ResponseEntity result = restTemplate.exchange(url, HttpMethod.GET, httpEntity, String.class);
 
-        log.info("获取到的结果:{}", JSONUtil.toJsonStr(result.getBody()));
+        log.info("获取到的结果:{}", JSONUtil.toJsonStr(result.getBody()));*/
     }
 
 
     @Test
     public void test4(){
-        Map<String,String> map = new HashMap<>();
+        /*Map<String,String> map = new HashMap<>();
         map.put("productCode","kfpt-cs");
         map.put("roleCode","kfpt-cs00000001");
 
@@ -110,12 +110,12 @@ public class openGetTest extends SpringResttemplateApplicationTests {
 
         ResponseEntity result = restTemplate.exchange(url, HttpMethod.GET, httpEntity, String.class);
 
-        log.info("获取到的结果:{}", JSONUtil.toJsonStr(result.getBody()));
+        log.info("获取到的结果:{}", JSONUtil.toJsonStr(result.getBody()));*/
     }
 
     @Test
     public void test5(){
-        Map<String,String> map = new HashMap<>();
+       /* Map<String,String> map = new HashMap<>();
         map.put("productCode","sjztkf");
         map.put("userCode","cu00006725");
 
@@ -129,7 +129,7 @@ public class openGetTest extends SpringResttemplateApplicationTests {
 
         ResponseEntity result = restTemplate.exchange(url, HttpMethod.GET, httpEntity, String.class);
 
-        log.info("获取到的结果:{}", JSONUtil.toJsonStr(result.getBody()));
+        log.info("获取到的结果:{}", JSONUtil.toJsonStr(result.getBody()));*/
     }
 
 

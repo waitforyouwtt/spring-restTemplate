@@ -9,6 +9,7 @@ import org.springframework.http.*;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,7 +26,7 @@ public class moneyPostTest extends SpringResttemplateApplicationTests {
 
     @Test
     public void post1(){
-        Map<String, String> map = new HashMap<>();
+/*        Map<String, String> map = new HashMap<>();
         map.put("productCode","cwzt");
         map.put("parentCode","0");
 
@@ -40,6 +41,33 @@ public class moneyPostTest extends SpringResttemplateApplicationTests {
 
         ResponseEntity<Map> resp = restTemplate.exchange(url, HttpMethod.POST, httpEntity, Map.class);
 
-        log.info("获取到的结果:{}", JSONUtil.toJsonStr(resp.getBody()));
+        log.info("获取到的结果:{}", JSONUtil.toJsonStr(resp.getBody()));*/
+    }
+
+
+    @Test
+    public void post2(){
+    /* Map<String,String> map = new HashMap<>();
+        map.put("productCode","sjztkf");
+        map.put("tenantCode","sjztkf");
+        map.put("roleCode","sjztkf00000000");
+        map.put("resourceCode","donghao2");
+
+        map.put("optCode","yunlan");
+        map.put("optBy","yunlan");
+
+        String url = devBaseUrl + "/resource/resourceRevokeAuthRole";
+
+        HttpHeaders header = new HttpHeaders();
+        header.setContentType(MediaType.APPLICATION_JSON);
+        header.set("Date", SignatureUtils.toGMTString(new Date()));
+        header.set("Digest", SignatureUtils.generateDigestString(map));
+        header.set("Authorization", SignatureUtils.generateAuthorization(HttpMethod.POST, map, "HTTP/1.1", url, "sjztkf", "qmzRUAjEblQis4Vk"));
+        HttpEntity<Map<String, String>> httpEntity = new HttpEntity<>(map, header);
+
+        ResponseEntity<Map> resp = restTemplate.exchange(url, HttpMethod.POST, httpEntity, Map.class);
+
+        log.info("获取到的结果:{}", JSONUtil.toJsonStr(resp.getBody()));*/
+
     }
 }

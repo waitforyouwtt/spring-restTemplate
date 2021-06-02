@@ -1,6 +1,6 @@
 package com.yidiandian;
 
-import com.yidiandian.vo.UserInfo;
+import com.yidiandian.view.UserInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.stereotype.Component;

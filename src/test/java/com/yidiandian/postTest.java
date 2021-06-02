@@ -2,8 +2,7 @@ package com.yidiandian;
 
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
-import com.alibaba.fastjson.JSON;
-import com.yidiandian.constant.Constant;
+import com.yidiandian.constant.ConstantUrl;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +12,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.Map;
 
 /**
  * @author 凤凰小哥哥
@@ -59,7 +56,7 @@ public class postTest extends SpringResttemplateApplicationTests{
         jsonObject.put("secret",clientSecret);
 
         //调用kong 网关
-        String url = Constant.KONG_URL_PRE+clientId+Constant.KONG_URL_END_SAVE;
+        String url = ConstantUrl.KONG_URL_PRE+clientId+ ConstantUrl.KONG_URL_END_SAVE;
         log.info("调用kong的url:{}",url);
 
         HttpHeaders httpHeaders = new HttpHeaders();
@@ -70,8 +67,8 @@ public class postTest extends SpringResttemplateApplicationTests{
 
         ResponseEntity<String> result = restTemplate.postForEntity(url, httpEntity, String.class);
         log.info("获取到的结果是:{}", JSONUtil.toJsonStr(result.getBody()));
-        Map<String,String> map = (Map<String, String>) JSON.parse(result.getBody());
-        log.info("map:{}",map.get("code"));
+       /* Map<String,String> map = (Map<String, String>) JSON.parse(result.getBody());
+        log.info("map:{}",map.get("code"));*/
     }
 
     @Test
@@ -84,7 +81,7 @@ public class postTest extends SpringResttemplateApplicationTests{
         jsonObject.put("secret",clientSecret);
 
         //调用kong 网关
-        String url = Constant.KONG_URL_PRE+clientId+"/"+clientId+Constant.KONG_URL_END_DELETE;
+        String url = ConstantUrl.KONG_URL_PRE+clientId+"/"+clientId+ ConstantUrl.KONG_URL_END_DELETE;
         log.info("调用kong的url:{}",url);
 
         HttpHeaders httpHeaders = new HttpHeaders();
@@ -95,8 +92,8 @@ public class postTest extends SpringResttemplateApplicationTests{
 
         ResponseEntity<String> result = restTemplate.postForEntity(url, httpEntity, String.class);
         log.info("获取到的结果是:{}", JSONUtil.toJsonStr(result.getBody()));
-        Map<String,String> map = (Map<String, String>) JSON.parse(result.getBody());
-        log.info("map:{}",map.get("code"));
+       /* Map<String,String> map = (Map<String, String>) JSON.parse(result.getBody());
+        log.info("map:{}",map.get("code"));*/
     }
 
 }

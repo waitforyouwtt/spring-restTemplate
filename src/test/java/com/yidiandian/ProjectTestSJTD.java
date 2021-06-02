@@ -1,3 +1,4 @@
+/*
 package com.yidiandian;
 
 import cn.hutool.json.JSONUtil;
@@ -17,10 +18,12 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+*/
 /**
  * @author 凤凰小哥哥
  * @date 2021-01-08
- */
+ *//*
+
 @Component
 @Slf4j
 public class ProjectTestSJTD extends SpringResttemplateApplicationTests {
@@ -37,7 +40,9 @@ public class ProjectTestSJTD extends SpringResttemplateApplicationTests {
         map.put("productCode","sjztkf");
         map.put("userCode","80838245");
         //不支持中文
-        /*map.put("realName","王建伟");*/
+        */
+/*map.put("realName","王建伟");*//*
+
         map.put("path","01");
         map.put("resourceType","1");
 
@@ -68,3 +73,4 @@ public class ProjectTestSJTD extends SpringResttemplateApplicationTests {
         log.info("返回的结果：{}", JSONUtil.toJsonStr(resKongDTO.getBody()));
     }
 }
+*/

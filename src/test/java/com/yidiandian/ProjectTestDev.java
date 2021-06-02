@@ -1,3 +1,4 @@
+/*
 package com.yidiandian;
 
 import cn.hutool.json.JSONUtil;
@@ -12,10 +13,12 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.*;
 
+*/
 /**
  * @author 凤凰小哥哥
  * @date 2020-12-20
- */
+ *//*
+
 @Component
 @Slf4j
 public class ProjectTestDev extends SpringResttemplateApplicationTests{
@@ -47,7 +50,9 @@ public class ProjectTestDev extends SpringResttemplateApplicationTests{
         map.put("productCode","jcsj20201127");
         map.put("userCode","80838245");
         //不支持中文
-        /*map.put("realName","王建伟");*/
+        */
+/*map.put("realName","王建伟");*//*
+
         map.put("pageNum","1");
         map.put("pageSize","10");
         String url = devBaseUrl+"/product/getAuthUser?"+ MapUtils.getStringByMap(map);
@@ -156,3 +161,4 @@ public class ProjectTestDev extends SpringResttemplateApplicationTests{
 
 
 }
+*/

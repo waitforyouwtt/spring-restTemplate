@@ -1,4 +1,4 @@
-package com.yidiandian.vo;
+package com.yidiandian.utils;
 
 import lombok.Data;
 
@@ -19,6 +19,11 @@ public class Result<T> {
         this.message = message;
     }
 
+    public Result(Integer code, String message, T data) {
+        this.code = code;
+        this.message = message;
+        this.data = data;
+    }
     public Result(boolean flag, Integer code, String message, T data) {
         this.flag = flag;
         this.code = code;

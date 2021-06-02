@@ -1,3 +1,4 @@
+/*
 package com.yidiandian;
 
 import cn.hutool.json.JSONUtil;
@@ -15,10 +16,12 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Date;
 import java.util.Map;
 
+*/
 /**
  * @author 凤凰小哥哥
  * @date 2021-01-08
- */
+ *//*
+
 @Component
 @Slf4j
 public class ProjectTestProd extends SpringResttemplateApplicationTests{
@@ -55,3 +58,4 @@ public class ProjectTestProd extends SpringResttemplateApplicationTests{
         log.info("返回的结果：{}", JSONUtil.toJsonStr(resKongDTO.getBody()));
     }
 }
+*/

@@ -2,13 +2,17 @@ package com.yidiandian;
 
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
-import com.yidiandian.vo.Result;
+import com.yidiandian.utils.MapUtils;
+import com.yidiandian.utils.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author 凤凰小哥哥
@@ -23,14 +27,6 @@ public class getTest extends SpringResttemplateApplicationTests{
 
     private String baseUrl = "http://localhost:8002/brand";
 
-    /**
-     * 获取无参数的get请求
-     */
-    @Test
-    public void testGETNoParams(){
-        String result = restTemplate.getForObject(baseUrl+"/findAll", String.class);
-        log.info("获取到的结果是:{}", JSONUtil.toJsonStr(result));
-    }
     /**
      * 获取有参数的get请求
      */
@@ -60,6 +56,26 @@ public class getTest extends SpringResttemplateApplicationTests{
 
         ResponseEntity<Result> method4 = restTemplate.getForEntity(baseUrl + "/{id}", Result.class, jsonObject);
         log.info("method4获取到的结果:{}",method4);
+    }
+
+    @Test
+    public void getForObjectTest2(){
+        //get 请求的六种方法总结：
+        Map<String,String> map = new HashMap<>();
+        map.put("userInfoId","1,2");
+        String url = "http://localhost:8080/v1/purchase/queryUserBaseByParams"+"?"+ MapUtils.getStringByMap(map);
+        //请求地址 & 返回类型 & 参数
+        Result method1 = restTemplate.getForObject(url, Result.class);
+        log.info("method1获取到的结果:{}",method1);
+    }
+
+    @Test
+    public void wt(){
+        //get 请求的六种方法总结：
+        Map<String,String> map = new HashMap<>();
+        map.put("productCode","2");
+        String url = "http://localhost:8080/v1/purchase/queryUserBaseByParams"+"?"+ MapUtils.getStringByMap(map);
+
     }
 
 }
